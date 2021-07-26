@@ -1,0 +1,78 @@
+body{
+	background-color: #fff;
+	font-family: 'Roboto', sans-serif;  /*шрифт*/
+	font-size: 14px;  /*размер шрифта*/
+	color: #0A143A; /*цвет текста*/
+}
+.header{
+	max-width: 1146px; /*Максимальная ширина  */
+	margin: auto;    /*Автоматическое выравнивание по середине*/
+	padding-top: 30px; /*отступ сверху*/
+}
+.navbar{
+	display: flex;  /*гибкое расположение элемента*/
+	align-items: center; /* выравниевание вертикально по центру*/
+	justify-content: space-between; /*расположить по краям*/
+	margin-bottom: 24px;
+}
+/*меню в шапке*/
+.navbar-menu{
+	margin-right: auto; /*автоматический отступ справа*/
+}
+.menu{
+	list-style: none;  /* без стиля элементов списка  */
+	margin: 0;  /*обнулить отступы сверху и снизу*/
+	padding: 0 22px; /*внутренние оступы слева и справа*/
+	display: flex;
+}
+
+/*правило применяется ко всем пунктам кроме последнего*/
+.menu-item:not(:last-child){ 
+	margin-right: 14px; /*отступ справа*/
+}
+.menu-link{
+	text-decoration: none; /*отключить подчеркивание ссылок*/
+	color: inhert; /*цвет текста как у родителя (body)*/
+}
+.button{
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px 15px; /*отступ сверху и снизу 10px, по краям - 15px*/
+	cursor: pointer; /*курсор в виде указателя при наведении на элемент*/
+}
+.button-link{
+	color: inherit; 
+}
+.button-primary{
+	background-color: #256EEB; /*цвет фона элемента*/
+	border-radius: 5px; /*скругление углов*/
+	color: #fff;
+
+}
+.search-panel{
+	max-width: 1146px;
+	height: 50px; /*высота*/
+	background: #256EEB;
+	border-radius: 5px;
+	display: flex;
+	padding: 4px;
+}
+.search-input{
+	flex-grow: 1; /*растягивается на всё свободное место*/
+	background: #fff;
+	border-radius: 5px;
+	padding: 14px 22px; /*отступы текста внутри*/
+	border: none; /*отключить обводку*/
+}
+.search-button{
+	border: none;
+	color: #fff;
+	background: #256EEB;
+	padding-left: 20px;
+	padding-right: 17px;
+	display: flex;
+	align-items: center;
+}
+.search-button-text{
+	margin-left: 7px;
+}
