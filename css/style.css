@@ -4,10 +4,18 @@ body{
 	font-size: 14px;  /*размер шрифта*/
 	color: #0A143A; /*цвет текста*/
 }
+a{
+	text-decoration: none; /*отключить подчеркивание ссылок*/
+}
 .header{
-	max-width: 1146px; /*Максимальная ширина  */
-	margin: auto;    /*Автоматическое выравнивание по середине*/
 	padding-top: 30px; /*отступ сверху*/
+	padding-bottom: 30px; /*отступ снизу*/
+	
+}
+.container{
+	max-width: 1146px; /*Максимальная ширина  */
+	margin: 0 auto;    /*Автоматическое выравнивание по середине*/
+	margin-bottom: 12px;
 }
 .navbar{
 	display: flex;  /*гибкое расположение элемента*/
@@ -31,23 +39,51 @@ body{
 	margin-right: 14px; /*отступ справа*/
 }
 .menu-link{
-	text-decoration: none; /*отключить подчеркивание ссылок*/
 	color: inhert; /*цвет текста как у родителя (body)*/
+    transition: color .2s linear;
+    display: inline-block;
+
+    margin: 0 20px;
+    position: relative;
 }
+.menu-link:after{
+	content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #256EEB;
+    position: absolute;
+    transition: opacity .2s linear;
+    margin-top: 10px;
+    opacity: 0;
+}
+.menu-link:hover:after
+{
+	opacity: 1;
+}
+
 .button{
-	text-decoration: none;
 	display: inline-block;
 	padding: 10px 15px; /*отступ сверху и снизу 10px, по краям - 15px*/
 	cursor: pointer; /*курсор в виде указателя при наведении на элемент*/
 }
 .button-link{
-	color: inherit; 
+	color: inherit;
+	transition: background-color .3s linear; 
+}
+.button-link:hover{
+	color: #fff; 
+	background-color: #669EFF;
+	border-radius: 5px;
 }
 .button-primary{
 	background-color: #256EEB; /*цвет фона элемента*/
 	border-radius: 5px; /*скругление углов*/
 	color: #fff;
-
+	transition: background-color .3s linear;
+}
+.button-primary:hover{
+	background-color: #669EFF;
 }
 .search-panel{
 	max-width: 1146px;
@@ -56,7 +92,10 @@ body{
 	border-radius: 5px;
 	display: flex;
 	padding: 4px;
+	transition: background-color .3s linear;
 }
+
+
 .search-input{
 	flex-grow: 1; /*растягивается на всё свободное место*/
 	background: #fff;
@@ -67,12 +106,110 @@ body{
 .search-button{
 	border: none;
 	color: #fff;
-	background: #256EEB;
+	background-color: #256EEB;
 	padding-left: 20px;
 	padding-right: 17px;
 	display: flex;
 	align-items: center;
 }
+.search-button:hover{
+	cursor: pointer;
+}
+
 .search-button-text{
 	margin-left: 7px;
+}
+.page-content{
+	display: grid; /*более гибкая разметка, блок делится на части*/
+	grid-template-columns: 9fr 3fr; /*указывается количество колонок (2, имеют разный вес, первая 9 фракций, вторая - 3)*/
+	grid-column-gap: 30px; /*пространство между колонками*/
+}
+.card-image{
+	border-radius: 10px;
+	width: 264px;
+	height: 178px;
+	object-fit: cover; /*картинка обрежется, если не подойдёт под заданные размеры*/
+}
+.cards{
+	display: flex;
+	flex-wrap: wrap; /*если элементы не помещаются в заданную ширину, они переносятся на следующую строчку*/
+}
+.card{
+	margin-bottom: 20px;
+}
+.card:not(:nth-child(3n)){ /*для всех, кроме каждого третьего потомка*/
+		margin-right: 20px;	
+}
+.card-title{
+	font-size: 16px; /*размер шрифта*/
+	line-height: 19px; /*высота строки с текстом*/  
+	color: #256EEB;
+	margin: 12px 0px 5px;
+	max-width: 225px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.card-price{
+	font-size: 16px; /*размер шрифта*/
+	margin-bottom: 10px;
+	display: block; /*свойство для задания блочного элемента*/
+}
+.card-text{
+	font-size: 14px;
+	color: #C4C4C4;
+	line-height: 0.5; 
+	margin-top: 0;
+}
+.card-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+
+}
+.like{
+	background-color: #fff;
+	border: none;
+	cursor: pointer;
+	margin-left: 15px;
+}
+.like path{
+	fill:#C4C4C4; 
+}
+.like:hover path{
+	fill: #8FA1C1;
+}
+.like:active path{
+	fill: #256EEB;
+	width: 20px;
+}
+.service{
+	margin-bottom: 25px;
+
+}
+.service:hover .service-title{
+	transform: translate(10px);
+}
+.service-title{
+	margin-top: 7px;
+	margin-bottom: 5px;
+	transition: transform .2s ease;
+}
+.service-text{
+	max-width: 231px;
+}
+.footer-text{
+	color: #C4C4C4;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.footer-menu{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-bottom: 16px;
+}
+.footer-link{
+	color: inherit;
+	margin-bottom: 5px;
+	display: inline-block;
 }
